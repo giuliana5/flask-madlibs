@@ -3,19 +3,16 @@
 <head>
   <title>Home Page</title>
 </head>
+
 <body>
   <h1>Madlibs</h1>
-  <form>
-    <label for="place">Place:</label>
-    <input id="place" type="text" name="place">
-    <label for="noun">Noun:</label>
-    <input id="noun" type="text" name="noun">
-    <label for="verb">Verb:</label>
-    <input id="verb" type="text" name="verb">
-    <label for="adjective">Adjective:</label>
-    <input id="adjective" type="text" name="adjective">
-    <label for="plural-noun">Plural Noun:</label>
-    <input id="plural-noun" type="text" name="plural-noun">
+  <form action="/story">
+    {% for prompt in prompts %}
+    <div>
+      <label for="{{prompt}}">{{prompt}}:</label>
+      <input id="{{prompt}}" type="text" name="{{prompt}}">
+    </div>
+    {% endfor %}
     <button>Submit</button>
   </form>
 </body>
